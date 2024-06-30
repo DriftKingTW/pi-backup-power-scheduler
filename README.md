@@ -51,15 +51,15 @@ This script is a backup power scheduler for Raspberry Pi 5 (or older Pi w/ RTC m
 ## Usage
 
 1. Configure HyperBackup service and backup schedule in DSM
-2. Follwing the [Pi Official RTC Guide](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#real-time-clock-rtc) to enable the low-power mode for wakealarm on Pi.
-3. (Optional) Connect RTC backup battery.
+2. Follwing the [Pi Official RTC Guide](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#real-time-clock-rtc) to enable the low-power mode for wakealarm on Pi
+3. (Optional) Connect RTC backup battery
 4. Edit crontab
 
    ```shell
    crontab -e
    ```
 
-5. Add cron task (replace `USERNAME` with your username and adjust cron schedule to your liking)
+5. Add cron task (replace `USERNAME` with your username and adjust cron schedule to your liking, ex: set it to run 30 minutes after the scheduled backup starts)
 
    ```shell
    HOME=/home/USERNAME
@@ -67,7 +67,7 @@ This script is a backup power scheduler for Raspberry Pi 5 (or older Pi w/ RTC m
    30 4 * * * /bin/bash -c 'source $HOME/Scripts/pi-backup-power-scheduler/venv/bin/activate && python $HOME/Scripts/pi-backup-power-scheduler/main.py'
    ```
 
-6. Make sure your script has executable permissions.
+6. Make sure your script has executable permissions
 
    ```shell
    chmod +x ~/Scripts/pi-backup-power-scheduler/main.py
