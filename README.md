@@ -42,6 +42,20 @@ This script is a backup power scheduler for Raspberry Pi 5 (or older Pi w/ RTC m
    ```
 
 6. Configure environment variables in the `.env` file.
+
+   ```shell
+   nano .env
+   ```
+
+   ```dotenv
+   DSM_IP=YOUR_SYNOLOGY_DSM_IP
+   DSM_PORT=HTTPS_DEFAULT_5001
+   DSM_ACCOUNT=YOUR_ACCOUNT
+   DSM_PASSWORD=YOUR_PASSWORD
+   DSM_TOTP_SECRET=YOUR_TOTP_SECRET
+   NEXT_BOOT_TIME=LINUX_DATE_STRING (Like 'tomorrow 03:50')
+   ```
+
 7. Run script
 
    ```shell
