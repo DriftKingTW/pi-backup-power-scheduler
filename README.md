@@ -24,6 +24,7 @@ This script is a backup power scheduler for Raspberry Pi 5 (or older Pi w/ RTC m
 3. Create and activate a Python virtual environment:
 
    ```shell
+   cd pi-backup-power-scheduler/
    python -m venv venv
    source venv/bin/activate
    ```
@@ -55,7 +56,7 @@ This script is a backup power scheduler for Raspberry Pi 5 (or older Pi w/ RTC m
 4. Edit crontab
 
    ```shell
-   cron -e
+   crontab -e
    ```
 
 5. Add cron task (replace `USERNAME` with your username and adjust cron schedule to your liking)
@@ -63,10 +64,16 @@ This script is a backup power scheduler for Raspberry Pi 5 (or older Pi w/ RTC m
    ```shell
    HOME=/home/USERNAME
 
-   30 4 * * * /bin/bash -c 'source $HOME/Scripts/pi-backup-power-scheduler/env/bin/activate && python $HOME/Scripts/pi-backup-power-scheduler/main.py'
+   30 4 * * * /bin/bash -c 'source $HOME/Scripts/pi-backup-power-scheduler/venv/bin/activate && python $HOME/Scripts/pi-backup-power-scheduler/main.py'
    ```
 
-6. Check crontab task with `crontab -l`
+6. Make sure your script has executable permissions.
+
+   ```shell
+   chmod +x ~/Scripts/pi-backup-power-scheduler/main.py
+   ```
+
+7. Check crontab task with `crontab -l`
 
 ## License
 
